@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "id": "R1",
+      "name": "Scholarship Rule",
+      "conditions": {
+        "gpa_category": "Above 3.5",
+        "attendance": "Above 80%",
+        "disciplinary_cases": false
+      },
+      "conclusion": "Eligible for Scholarship"
+    },
+    {
+      "id": "R2",
+      "name": "Graduation Rule",
+      "conditions": {
+        "gpa_category": ["Above 3.5", "Between 3.0 and 3.49"],
+        "completed_prerequisites": true,
+        "outstanding_fees": false
+      },
+      "conclusion": "Eligible for Graduation"
+    },
+    {
+      "id": "R3",
+      "name": "Probation Rule",
+      "conditions": {
+        "gpa_category": "Below 3.0"
+      },
+      "conclusion": "Academic Probation"
+    },
+    {
+      "id": "R4",
+      "name": "Registration Rule",
+      "conditions": {
+        "outstanding_fees": true
+      },
+      "conclusion": "Registration Blocked"
+    },
+    {
+      "id": "R5",
+      "name": "Dean's List Rule",
+      "conditions": {
+        "gpa_category": "Above 3.5",
+        "attendance": "Above 80%"
+      },
+      "conclusion": "Dean's List Candidate"
+    }
+  ]
+}
