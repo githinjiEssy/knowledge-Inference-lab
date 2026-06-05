@@ -45,14 +45,15 @@ def forward_chaining(facts, kb):
     conclusions = []
     explanations = []
 
+    # Iterate through each rule in the knowledge base and check if the conditions are met
     for rule in kb["rules"]:
         conditions_met = True
         explanation_details = []
 
         for key, value in rule["conditions"].items():
-
             # Handle list values (like GPA range)
             if isinstance(value, list):
+                # For list conditions, we check if the fact value is in the list of acceptable values
                 if facts.get(key) not in value:
                     conditions_met = False
                 else:
@@ -64,6 +65,7 @@ def forward_chaining(facts, kb):
                 else:
                     explanation_details.append(f"{key} = {facts.get(key)}")
 
+        # If all conditions are met, add the conclusion and explanation
         if conditions_met:
             conclusions.append(rule["conclusion"])
             explanations.append({
